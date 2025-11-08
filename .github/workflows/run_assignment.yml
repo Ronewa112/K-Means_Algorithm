@@ -1,0 +1,31 @@
+name: Run Assignment 1
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Run script
+        run: |
+          python code/adaptive_assignment_1.py <<EOF
+          3
+          1
+          -2
+          -1
+          -4
+          0
+          1
+          0
+          EOF
